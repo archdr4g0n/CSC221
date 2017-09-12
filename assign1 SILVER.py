@@ -1,3 +1,8 @@
+##Tracy Batchelor
+##CSC 221
+##M1T1 Gold
+##11 Sep 2017
+
 import random
 
 def main():
@@ -13,8 +18,7 @@ def main():
     elif choice == 'B':
         addSeveral()
     elif choice == 'C':
-        game()
-    
+        print('THIS FEATURE IS AVAILABLE TO PREORDER CUSTOMERS ONLY.')
         main()
        
 # add two numbers
@@ -57,34 +61,5 @@ def addSeveral():
     else:
         main()
 
-def game():
-    print('I have picked a number between 0 and 99, it is your job to guess it.')
-    print('Enter END if you are a quiter!!!!')
-    answer = random.randint(0, 99)
-    guess = input('What is your guess? ')
-    num_guess = 0
-    print(answer)      
-    guess = int(guess)        
-    while guess != answer:
-        num_guess += 1  
-        if guess != 'END':
-            if guess == 'TEN':
-                guess = 10  
-            if guess < answer:
-                print('The answer is higher!!')       
-            elif guess > answer:
-                print('The answer is lower!!')  
-        guess = input('What is your guess? ')
-        guess = int(guess)
-    print('Congratulations, you found the answer in ', num_guess, 'guesses!!!')
-    cont = input('AGAIN? (Y/N)').upper()
-    
-    if cont == 'N':
-        print('THANK YOU FOR USING THE MARK V ADDINATOR!')
-        print('BE SURE TO PRE-ORDER THE MARK VI AT MATHSTOP TODAY!')
-        
-    else:
-        main()   
-        
-    
+
 main()
