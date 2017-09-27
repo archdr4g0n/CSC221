@@ -52,6 +52,16 @@ def random_guess():
     answer = random.randint(1, 100)
     return answer
 
+# cyber compare
+def comp_compare(guess, choice):
+    if guess < choice:
+        print('Cyber: The answer is higher!!')       
+    elif guess > choice:
+        print('Cyber: The answer is lower!!')
+    else:
+        print('Congratulations, you found the answer in', num_guess, 'guesses!!!')
+        break
+    
 # makes a bisectional guess
 def pick_number(lower,higher):
     guess = int((higher - lower) / 2) + lower
@@ -59,7 +69,7 @@ def pick_number(lower,higher):
     return guess
 
 #compares the guess to the answer
-def compare_answer(guess):
+def compare_answer():
 #    global guess
     decide = input('Should the computer guess higher or lower? (H/L)').upper()
     if decide == 'H':
@@ -72,7 +82,7 @@ def compare_answer(guess):
         return var
     else:
         print("Invalid choice. Please pick 'H' or 'L'")
-        compare_answer(guess)
+        compare_answer()
 
 #game 2    
 def computer_guess_game():
@@ -106,5 +116,31 @@ def computer_guess_game():
     else:
         main()
         
-
+# game 3
+def comp_vs_cyber():
+    print('The computer will play a cyber opponent.')
+    print('Cyber, choose your number')
+    choice = random_guess()
+    print('Cyber: I have chosen my number.')
+    while choice != guess:    
+        print ('The computer will try to guess it')
+        counter += 1
+        if counter == 9:
+            print("The computer didn't guess the number. You cheated")
+            break
+        guess = pick_number(lower, higher)
+        if guess == answer:
+            print('The computer has guessed the number in', counter,'guesses.')
+            break
+        compare = compare_answer(guess)
+        if compare =='lower':
+            lower = guess
+        elif compare =='higher':
+            higher = guess
+            
+    cont = input('AGAIN? (Y/N)').upper()
+    if cont == 'N':
+        print('THANK YOU FOR PLAYIING!!')
+    else:
+        main()
 main()
